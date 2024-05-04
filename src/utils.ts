@@ -1,0 +1,1 @@
+export const tt = () => console.error('erro')
