@@ -3,8 +3,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Button, TextArea } from 'ev-component-library'
 import { useState } from 'react'
 
-import { Task } from '@/app/business/task.types'
-import { createNewTask } from '@/app/business/tasks.utils'
+import { Task } from '../../business/types/task.types'
+import { createNewTask } from '../../business/utils/tasks.utils'
 
 type TaskFormProps = { onSubmit: (_newTask: Task) => void; selectedTask?: Task }
 export const TaskForm = ({ onSubmit, selectedTask }: TaskFormProps) => {

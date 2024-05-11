@@ -10,8 +10,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Button, IconButton } from 'ev-component-library'
 import { useState } from 'react'
 
-import { DAYS_OF_WEEK } from './business/days.constants'
-import { Task } from './business/task.types'
+import { DAYS_OF_WEEK } from './business/constants/days.constants'
+import { Task } from './business/types/task.types'
 import { TaskForm } from './services/components/TaskForm'
 import { useStateStorage } from './services/hooks/useStateStorage'
 
