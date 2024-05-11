@@ -117,12 +117,12 @@ export default function Home() {
         </ul>
 
         {displayTaskForm && (
-          <div className="absolute left-0 right-0 bottom-0 bg-ev-light-harder p-2">
+          <div className="sticky left-0 right-0 bottom-0 bg-ev-light-harder p-2">
             <TaskForm onSubmit={onSubmitNewTask} />
           </div>
         )}
         {selectedTask && (
-          <div className="absolute left-0 right-0 bottom-0 bg-ev-light-harder p-2">
+          <div className="sticky left-0 right-0 bottom-0 bg-ev-light-harder p-2">
             <TaskForm
               onSubmit={onSubmitUpdateTask}
               selectedTask={selectedTask}
