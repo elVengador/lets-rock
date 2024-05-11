@@ -19,10 +19,19 @@
     "no-console": ["error", { "allow": ["warn", "error"] }],
     "no-debugger": "error",
     "no-constant-condition": "error",
-    "no-unused-vars": "error",
+    "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
     "no-undef": "error",
     "no-use-before-define": "error",
-    "max-len": ["error", { "code": 80, "ignoreStrings": true }],
+    "max-len": [
+      "error",
+      {
+        "code": 80,
+        "ignoreComments": true,
+        "ignoreStrings": true,
+        "ignoreTemplateLiterals": true,
+        "ignoreRegExpLiterals": true
+      }
+    ],
     "max-depth": ["error", 4],
 
     // Best Practices:
@@ -32,7 +41,13 @@
     "no-prototype-builtins": "error",
 
     // Stylistic Issues:
-    "indent": ["error", 2],
+    "indent": [
+      "error",
+      2,
+      {
+        "ignoredNodes": ["JSXElement", "ObjectExpression"]
+      }
+    ],
     "semi": ["error", "never"],
     "no-extra-semi": "error",
     "quotes": ["error", "single"],
@@ -49,6 +64,12 @@
     "prefer-template": "error",
 
     // plugins
-    "simple-import-sort/imports": "warn"
+    "simple-import-sort/imports": "warn",
+    "react/jsx-indent": [
+      "error",
+      2,
+      { "checkAttributes": false, "indentLogicalExpressions": true }
+    ],
+    "@next/next/no-img-element": "off"
   }
 }
