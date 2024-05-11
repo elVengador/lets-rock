@@ -72,8 +72,8 @@ export default function Home() {
       <div className="h-full w-full  min-h-[100dvh] relative">
         <div className="mb-2 mx-auto w-full max-w-[355px] sticky bg-ev-light top-0">
           <div className="mb-2 flex flex-col gap-1 items-center bg-ev-primary ">
-            <div>{currentDate.getDate()}</div>
             <div>{DAYS_OF_WEEK[currentDate.getDay()]}</div>
+            <div className="text-[30px] font-bold">{currentDate.getDate()}</div>
           </div>
           <div className="flex flex-row-reverse justify-between px-2">
             <Button onClick={() => setDisplayTaskForm(true)}>
