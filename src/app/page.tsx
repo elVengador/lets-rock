@@ -75,7 +75,10 @@ export default function Home() {
             <div>{DAYS_OF_WEEK[currentDate.getDay()]}</div>
             <div className="text-[30px] font-bold">{currentDate.getDate()}</div>
           </div>
-          <div className="flex flex-row-reverse justify-between px-2">
+          <div className="flex justify-between items-center p-2">
+            <span>
+              State: {tasks.filter((cur) => cur.done).length}/{tasks.length}
+            </span>
             <Button onClick={() => setDisplayTaskForm(true)}>
               Add <FontAwesomeIcon icon={faPlus} />
             </Button>
