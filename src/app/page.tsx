@@ -69,7 +69,7 @@ export default function Home() {
       {viewForm === 'SLEEP_FORM' &&
        <SleepForm onSubmit={onSubmitSleepForm} />} */}
       {/* {viewForm === 'APPLICATION' && ( */}
-      <div className="h-full w-full  min-h-[100dvh] relative">
+      <div className="flex flex-col items-center h-full w-full  min-h-[100dvh] relative">
         <div className="mb-2 mx-auto w-full max-w-[355px] sticky bg-ev-light top-0">
           <div className="mb-2 flex flex-col gap-1 items-center bg-ev-primary ">
             <div>{DAYS_OF_WEEK[currentDate.getDay()]}</div>
@@ -120,7 +120,7 @@ export default function Home() {
         </ul>
 
         {displayTaskForm && (
-          <div className="sticky left-0 right-0 bottom-0 bg-ev-light-harder p-2">
+          <div className="fixed left-0 right-0 bottom-0 bg-ev-light-harder p-2">
             <TaskForm
               onSubmit={onSubmitNewTask}
               onCancel={() => setDisplayTaskForm(false)}
@@ -128,7 +128,7 @@ export default function Home() {
           </div>
         )}
         {selectedTask && (
-          <div className="sticky left-0 right-0 bottom-0 bg-ev-light-harder p-2">
+          <div className="fixed left-0 right-0 bottom-0 bg-ev-light-harder p-2">
             <TaskForm
               onSubmit={onSubmitUpdateTask}
               selectedTask={selectedTask}

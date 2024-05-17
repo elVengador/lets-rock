@@ -45,17 +45,6 @@ export const TaskForm = ({
 
   return (
     <div className="flex flex-col gap-4 w-full max-w-[355px] m-auto">
-      <div className="flex justify-between">
-        <IconButton onClick={onCancel}>
-          <FontAwesomeIcon icon={faCircleLeft} className="text-ev-dark" />
-        </IconButton>
-        <Button type="submit">
-          <div className="flex gap-2 items-center">
-            Create
-            <FontAwesomeIcon icon={faPlus} />
-          </div>
-        </Button>
-      </div>
       <form
         onSubmit={(e) => {
           e.preventDefault()
@@ -63,6 +52,17 @@ export const TaskForm = ({
         }}
         className="flex flex-col items-center gap-1 w-full"
       >
+        <div className="w-full flex justify-between">
+          <IconButton onClick={onCancel}>
+            <FontAwesomeIcon icon={faCircleLeft} className="text-ev-dark" />
+          </IconButton>
+          <Button type="submit">
+            <div className="flex gap-2 items-center">
+              Create
+              <FontAwesomeIcon icon={faPlus} />
+            </div>
+          </Button>
+        </div>
         <div className="flex gap-4 w-full">
           <TextArea
             variant="flat"
