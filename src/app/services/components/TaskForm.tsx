@@ -1,6 +1,10 @@
-import { faFloppyDisk, faPlus } from '@fortawesome/free-solid-svg-icons'
+import {
+  faCircleLeft,
+  faFloppyDisk,
+  faPlus,
+} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Button, TextArea, TextField } from 'ev-component-library'
+import { Button, IconButton, TextArea, TextField } from 'ev-component-library'
 import { useState } from 'react'
 
 import { Template } from '@/app/business/types/templates.types'
@@ -11,8 +15,16 @@ import { useStateStorage } from '../hooks/useStateStorage'
 
 const INITIAL_TEMPLATES: Template[] = []
 
-type TaskFormProps = { onSubmit: (_newTask: Task) => void; selectedTask?: Task }
-export const TaskForm = ({ onSubmit, selectedTask }: TaskFormProps) => {
+type TaskFormProps = {
+  onSubmit: (_newTask: Task) => void
+  selectedTask?: Task
+  onCancel: () => void
+}
+export const TaskForm = ({
+  onSubmit,
+  selectedTask,
+  onCancel,
+}: TaskFormProps) => {
   const [displayTemplateForm, setDisplayTemplateForm] = useState(false)
   const [templates, setTemplates] = useStateStorage<Template[]>(
     'LETS_ROCK_TEMPLATES',
@@ -33,6 +45,17 @@ export const TaskForm = ({ onSubmit, selectedTask }: TaskFormProps) => {
 
   return (
     <div className="flex flex-col gap-4 w-full max-w-[355px] m-auto">
+      <div className="flex justify-between">
+        <IconButton onClick={onCancel}>
+          <FontAwesomeIcon icon={faCircleLeft} className="text-ev-dark" />
+        </IconButton>
+        <Button type="submit">
+          <div className="flex gap-2 items-center">
+            Create
+            <FontAwesomeIcon icon={faPlus} />
+          </div>
+        </Button>
+      </div>
       <form
         onSubmit={(e) => {
           e.preventDefault()
@@ -49,12 +72,6 @@ export const TaskForm = ({ onSubmit, selectedTask }: TaskFormProps) => {
             inputClassName="border-b-2 border-ev-dark bg-ev-light-hard"
           />
         </div>
-        <Button type="submit">
-          <div className="flex gap-2 items-center">
-            Create
-            <FontAwesomeIcon icon={faPlus} />
-          </div>
-        </Button>
       </form>
 
       {templates.length === 0 && (

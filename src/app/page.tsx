@@ -121,7 +121,10 @@ export default function Home() {
 
         {displayTaskForm && (
           <div className="sticky left-0 right-0 bottom-0 bg-ev-light-harder p-2">
-            <TaskForm onSubmit={onSubmitNewTask} />
+            <TaskForm
+              onSubmit={onSubmitNewTask}
+              onCancel={() => setDisplayTaskForm(false)}
+            />
           </div>
         )}
         {selectedTask && (
@@ -129,6 +132,7 @@ export default function Home() {
             <TaskForm
               onSubmit={onSubmitUpdateTask}
               selectedTask={selectedTask}
+              onCancel={() => setSelectedTask(null)}
             />
           </div>
         )}
