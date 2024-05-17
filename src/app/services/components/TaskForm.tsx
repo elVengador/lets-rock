@@ -74,56 +74,54 @@ export const TaskForm = ({
         </div>
       </form>
 
-      {templates.length === 0 && (
-        <div className="grid place-items-center text-center bg-ev-light-hard p-2">
-          There is no suggestion, create a template to get suggestions
-        </div>
-      )}
-      {templates.length > 0 && (
-        <ul className="flex flex-col gap-1 overflow-y-auto">
-          {templates.map((cur, idx) => (
-            <li
-              key={idx}
-              onClick={() => setTask((p) => ({ ...p, title: cur.title }))}
-              className="px-2 rounded-md bg-ev-light-hard hover:bg-ev-light cursor-pointer"
+      <ul className="flex flex-col gap-1 overflow-y-auto">
+        {templates.length === 0 && (
+          <li className="grid place-items-center text-center bg-ev-light-hard p-2">
+            There is no suggestion, create a template to get suggestions
+          </li>
+        )}
+        {templates.map((cur, idx) => (
+          <li
+            key={idx}
+            onClick={() => setTask((p) => ({ ...p, title: cur.title }))}
+            className="px-2 rounded-md bg-ev-light-hard hover:bg-ev-light cursor-pointer"
+          >
+            {cur.title}
+          </li>
+        ))}
+        {!displayTemplateForm && (
+          <li className="w-full flex justify-center">
+            <Button
+              type="button"
+              onClick={() => setDisplayTemplateForm(true)}
+              className="bg-ev-dark mx-auto"
             >
-              {cur.title}
-            </li>
-          ))}
-          {!displayTemplateForm && (
-            <li className="w-full flex justify-center">
-              <Button
-                type="button"
-                onClick={() => setDisplayTemplateForm(true)}
-                className="bg-ev-dark mx-auto"
-              >
-                <div className="flex gap-2 items-center justify-center">
-                  New Template
-                  <FontAwesomeIcon icon={faPlus} />
-                </div>
+              <div className="flex gap-2 items-center justify-center">
+                New Template
+                <FontAwesomeIcon icon={faPlus} />
+              </div>
+            </Button>
+          </li>
+        )}
+        {displayTemplateForm && (
+          <li className="w-full">
+            <form
+              onSubmit={onSubmitTemplate}
+              className="flex items-center gap-2"
+            >
+              <TextField
+                value={template.title}
+                onChange={(value) => setTemplate({ title: value })}
+                variant="solid"
+                className="flex-grow"
+              />
+              <Button type="submit">
+                <FontAwesomeIcon icon={faFloppyDisk} />
               </Button>
-            </li>
-          )}
-          {displayTemplateForm && (
-            <li className="w-full">
-              <form
-                onSubmit={onSubmitTemplate}
-                className="flex items-center gap-2"
-              >
-                <TextField
-                  value={template.title}
-                  onChange={(value) => setTemplate({ title: value })}
-                  variant="solid"
-                  className="flex-grow"
-                />
-                <Button type="submit">
-                  <FontAwesomeIcon icon={faFloppyDisk} />
-                </Button>
-              </form>
-            </li>
-          )}
-        </ul>
-      )}
+            </form>
+          </li>
+        )}
+      </ul>
     </div>
   )
 }
