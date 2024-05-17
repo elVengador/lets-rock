@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Button, TextField } from 'ev-component-library'
 import { useState } from 'react'
 
-import { SleepTime } from '@/app/business/user'
+import { SleepTime } from '@/app/business/types/user'
 
 type SleepFormProps = { onSubmit: (_newValue: SleepTime) => void }
 export const SleepForm = ({ onSubmit }: SleepFormProps) => {
